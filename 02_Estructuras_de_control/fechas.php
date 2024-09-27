@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fechas</title>
+
+	<?php
+        error_reporting( E_ALL );
+        ini_set( "display_errors", 1 );    
+    ?>
+
 </head>
 <body>
     <?php
@@ -25,7 +31,7 @@
         
         */
 
-		$hora = (int)date("G");
+		//$hora = (int)date("G");
 		//var_dump($hora);
 
 		/*
@@ -36,9 +42,9 @@
 		SI &hora entre 1 y 5, es Madrugada
 		*/
 
-		$tiempo = null;
+		//$tiempo = null;
 
-		if($hora >= 6 && $hora <= 11){
+		/*if($hora >= 6 && $hora <= 11){
 			$tiempo = "Mañana";
 		} elseif ($hora >= 12 && $hora <= 14){
 			$tiempo = "Mediodia";
@@ -50,21 +56,21 @@
 			$tiempo = "Madrugada";
 		}
 
-		echo "<p>$tiempo</p>";
+		echo "<p>$tiempo</p>";*/
 	
 		$hora_exacta = date("H:i:s:u");
 		echo "<h1>$hora_exacta</h1>";
 
-		$dia = date("l");
-		echo "<h2>Hoy es $dia</h2>";
+		
+		//echo "<h2>Hoy es $dia</h2>";
 
 		/*Switch si para ver si hay clase de */
 		
-		$hay = "Clase";
+		//$hay = "Clase";
 
 		//$dia = "Saturday";
 
-		switch($dia){
+		/*switch($dia){
 			case "Monday":
 			case "Wednesday":
 			case "Friday":
@@ -78,8 +84,67 @@
 				break;
 			default:
 				echo "Como hemos llegado aqui?¿?¿??¿";
-		}
+		}*/
 
+		/*Con una estructura Switch Cambiar la variable dia a español y reescribir el switch anteriorcon la variable traducida*/
+
+		
+
+		/*switch($dia){
+			case "Monday":
+				$dia = "Lunes";
+				break;
+			case "Wednesday":
+				$dia = "Miercoles";
+				break;
+			case "Friday":
+				$dia = "Viernes";
+				break;
+			case "Tuesday":
+				$dia = "Martes";
+				break;
+			case "Thursday":
+				$dia = "Jueves";
+				break;
+			case "Saturday":
+				$dia = "Sábado";
+				break;
+			case "Sunday":
+				$dia = "Domingo";
+				break;
+			default:
+				echo "Como hemos llegado aqui?¿?¿??¿";
+			}*/
+
+			$dia = date("l");
+
+			$dia_espanol = null;
+
+			$dia_espanol = match ($dia) {
+				"Monday" => "Lunes",
+				"Tuesday" => "Martes",
+				"Wednesday" => "Miercoles",
+				"Thursday" => "Jueves",
+				"Friday" => "Viernes",
+				"Saturday" => "Sabado",
+				"Sunday" => "Domingo"
+			};
+
+			switch($dia_espanol){
+				case "Lunes":
+				case "Miercoles":
+				case "Viernes":
+					echo "<p>Hoy es $dia_espanol y hay clase :)</p>";
+					break;
+				case "Martes":
+				case "Jueves":
+				case "Sabado":
+				case "Domingo":
+					echo "Hoy es $dia_espanol y no hay clase :(";
+					break;
+				default:
+					echo "Como hemos llegado aqui?¿?¿??¿";
+			}
     ?>
     
 </body>
