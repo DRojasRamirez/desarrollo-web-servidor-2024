@@ -35,6 +35,65 @@
         echo "</ul>";
     
     ?>
+
+    <h1>Lista con FOR</h1>
+
+    <?php
+
+        echo "<ul>";
+        for ($i=1; $i<=10 ; $i++){
+
+            echo "<li>$i</li>";
+
+        }
+        echo "</ul>"
+
+    ?>
+
+    <h1>Listas con FOR con BREAK curseadisimo</h1>
+
+    <?php
+
+        echo "<ul>";
+        for ($i=1; ; $i++){
+            if($i >= 10){
+                break;
+            }
+            echo "<li>$i</li>";
+        }
+        echo "</ul>"
+
+    ?>
+
+
+    <?php
+
+        echo "<ul>";
+        for ($i=1; ;){
+            if($i >= 10){
+                break;
+            }
+            echo "<li>$i</li>";
+            $i++;
+        }
+        echo "</ul>"
+
+    ?>
+
+    <?php
+
+    //CÓDIGO OFUSCADO
+    echo "<ul>";
+    $i = 1;
+    for (; ;){
+        if($i >= 10){
+            break;
+        }
+        echo "<li>$i</li>";
+    }
+    echo "</ul>"
+
+    ?> 
     
 </body>
 </html>
