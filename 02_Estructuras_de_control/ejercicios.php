@@ -70,13 +70,44 @@
 
         $anio = date("Y");
 
-        echo "<h1>$dia_semana_espanol $dia de $mes_espanol de $anio"
+        echo "<h1>$dia_semana_espanol $dia de $mes_espanol de $anio</h1>"
         
         ?>
 
     <!-- Ejercicio 3: Mostrar en una lista los números múltiplos de 3 usando WHile y IF-->
 
+    <?php
+    
+    $i = 1;
+
+    echo "<p><ul>";
+    while($i <= 30){
+        if($i % 3 == 0){
+            echo "<li>$i</li>";
+        }
+        
+        $i++;
+    }
+    echo "</ul></p>";
+
+    ?>
+        
     <!-- Ejercicio 4: calcular el factorial de 6 usando While-->
+
+    <?php
+
+    $i = 1;
+
+    $factorial = 1;
+
+    while($i <= 6){        
+        $factorial = $factorial * $i;
+        $i++;
+    }
+
+    echo "<p>$factorial</p>";
+
+    ?>
     
 </body>
 </html>
