@@ -1,0 +1,15 @@
+table{
+    border: 2px solid red;
+}
+th, td {
+    border: 2px solid rgb(128, 170, 174);
+}
+caption{
+    border: 2px solid rgb(128, 38, 0);
+}
+.pass{
+    color: green;
+}
+.notPass{
+    color: red;
+}
