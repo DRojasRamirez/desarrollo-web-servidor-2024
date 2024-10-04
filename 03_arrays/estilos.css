@@ -7,9 +7,15 @@ th, td {
 caption{
     border: 2px solid rgb(128, 38, 0);
 }
-.pass{
-    color: green;
+.sobresaliente{
+    background-color: green;
 }
-.notPass{
-    color: red;
+.suspenso{
+    background-color: red;
+}
+.notable{
+    background-color: yellowgreen;
+}
+.aprobado{
+    background-color: yellow;
 }

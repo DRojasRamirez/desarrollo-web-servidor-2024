@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios de Tablas</title>
     <link rel="stylesheet" type="text/css" href="estilos.css">
+
+    <?php
+        error_reporting( E_ALL );
+        ini_set( "display_errors", 1 );    
+    ?>
+
 </head>
 <body>
     <!-- EJERCICIO 1
@@ -31,8 +37,9 @@
         "Empresa e iniciativa emprendedora" => "Andrea",
         "Inglés" => "Virginia",
     ];
+    krsort($profesores);
     ?>
-
+    
     <table>
         <caption>Medac 2ºB DAW</caption>
         <thead>
@@ -71,12 +78,14 @@
 
     <?php
 
-    $alumnos = [
+    $estudiantes = [
         "Francisco" => 3,
         "Daniel" => 5,
         "Aurora" => 10,
         "Luis" => 7,
         "Samuel" => 9,
+        "Juanjo" => 2,
+        "Vicente" => 1,
     ];
     ?>
 
@@ -91,21 +100,35 @@
         </thead>
         <tbody>
             <?php
-                foreach($alumnos as $alumno => $nota){ ?>
+                foreach($estudiantes as $alumno => $nota){ ?>
                     <tr>
                         <td><?php echo $alumno ?></td>
                         <td><?php echo $nota ?></td>
-                        <?php
-                            if($nota >= 5){ ?>
-                               <td class="pass"><?php echo "Aprobado"; ?></td> <?php
-                            } else {
-                               ?> <td class="notPass"><?php echo "Suspenso"; ?></td><?php
+                            <?php if ($nota < 5) {
+                                echo "<td class='suspenso'>Suspenso</td>";
+                            }
+                            elseif ($nota >= 7 and $nota <= 8) {
+                                echo "<td class='notable'>Notable</td>";
+                            }elseif ($nota >= 5 and $nota <= 6) {
+                                echo "<td class='aprobado'>Aprobado</td>";
+                            }else {
+                                echo "<td class='sobresaliente'> Sobresaliente</td>";
                             }
                             ?>
                     </tr>
                 <?php } ?>
         </tbody>
     </table>
-    
+    <?php
+    /**
+     * Insertar dos nuevos estudiantes con notas aleatorias entre 0 y 10
+     * 
+     * Borrar un estudiante (el que peor me caiga) por la clave
+     * 
+     * Mostrar en una nueva tabla todo ordenado por la nota de 10 a 0
+     *  
+     * Mostar en una nueva tabla todo ordenado por la nota de 10 a 0 (orden inverso) 
+     */
+    ?>
 </body>
 </html>
