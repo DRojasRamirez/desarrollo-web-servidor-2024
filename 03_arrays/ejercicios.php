@@ -125,10 +125,86 @@
      * 
      * Borrar un estudiante (el que peor me caiga) por la clave
      * 
-     * Mostrar en una nueva tabla todo ordenado por la nota de 10 a 0
+     * Mostrar en una nueva tabla todo ordenado por los nombres alfabeticamente inverso
      *  
      * Mostar en una nueva tabla todo ordenado por la nota de 10 a 0 (orden inverso) 
      */
+    
+    $estudiantes["Anni"] = rand(0,10);
+    $estudiantes["Alejo"] = rand(0,10);
+    
+    unset($estudiantes["Vicente"]);
+
+    krsort($estudiantes);
+
     ?>
+    <h3>Tabla nombres inverso</h3>
+    <table>
+        <caption>Medac 2ºB DAW</caption>
+        <thead>
+            <tr>
+                <th>Alumno/a</th>
+                <th>Nota</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach($estudiantes as $alumno => $nota){ ?>
+                    <tr>
+                        <td><?php echo $alumno ?></td>
+                        <td><?php echo $nota ?></td>
+                            <?php if ($nota < 5) {
+                                echo "<td class='suspenso'>Suspenso</td>";
+                            }
+                            elseif ($nota >= 7 and $nota <= 8) {
+                                echo "<td class='notable'>Notable</td>";
+                            }elseif ($nota >= 5 and $nota <= 6) {
+                                echo "<td class='aprobado'>Aprobado</td>";
+                            }else {
+                                echo "<td class='sobresaliente'> Sobresaliente</td>";
+                            }
+                            ?>
+                    </tr>
+                <?php } ?>
+        </tbody>
+    </table>
+
+    <h3>Tabla notas menos a mas nota</h3>
+    <?php
+        asort($estudiantes);
+    ?>
+
+    <table>
+        <caption>Medac 2ºB DAW</caption>
+        <thead>
+            <tr>
+                <th>Alumno/a</th>
+                <th>Nota</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach($estudiantes as $alumno => $nota){ ?>
+                    <tr>
+                        <td><?php echo $alumno ?></td>
+                        <td><?php echo $nota ?></td>
+                            <?php if ($nota < 5) {
+                                echo "<td class='suspenso'>Suspenso</td>";
+                            }
+                            elseif ($nota >= 7 and $nota <= 8) {
+                                echo "<td class='notable'>Notable</td>";
+                            }elseif ($nota >= 5 and $nota <= 6) {
+                                echo "<td class='aprobado'>Aprobado</td>";
+                            }else {
+                                echo "<td class='sobresaliente'> Sobresaliente</td>";
+                            }
+                            ?>
+                    </tr>
+                <?php } ?>
+        </tbody>
+    </table>
+
 </body>
 </html>
