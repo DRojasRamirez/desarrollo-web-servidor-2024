@@ -46,9 +46,10 @@
         
     }
 
+    $_titulo = array_column($peliculas, 0);
     $_genero = array_column($peliculas, 1);
     $_anio = array_column($peliculas, 2);
-    $_titulo = array_column($peliculas, 0);
+    
 
     array_multisort($_genero, SORT_ASC, 
                     $_anio, SORT_DESC,
