@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IVA</title>
+    <title>IVA-GET</title>
 
     <?php
 
@@ -26,7 +26,7 @@
     10€ IVA = REDUCIDO, PVP = 11€
 
     -->
-    <form action="" method="post">
+    <form action="" method="get">
 
         <label for="precio">Precio</label>
         <input type="text" name="precio" id="precio">
@@ -41,12 +41,10 @@
         <input type="submit" value="Calcular">
 
         <?php
-        
-
-        if($_SERVER["REQUEST_METHOD"] == "POST"){
-            $precio = $_POST["precio"];
-            $iva = $_POST["iva"];
-
+            //isset (is set) devuelve true si la variable existe
+        if(isset($_GET["precio"]) && isset($_GET["iva"])){
+            $precio = $_GET["precio"];
+            $iva = $_GET["iva"];
 
             if($precio != '' && $iva != ''){
                 $pvp = match ($iva) {
@@ -55,11 +53,16 @@
                     "superreducido" => $precio * SUPERREDUCIDO,
                     default => "ERROR"
                 };
-
+    
                 echo "<h3>El total aplicando el IVA es " . $pvp . "€</h3>";
-            } else  {
+            } else {
                 echo "<p>Te faltan datos</p>";
             }
+
+            //var_dump($precio);
+            //var_dump($iva);
+
+            
         }
         ?>
     </form>
